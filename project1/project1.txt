@@ -1,0 +1,467 @@
+Script started on Tue Sep 30 21:25:58 2025
+[1m[7m%[27m[1m[0m                                                                                                                                                                        [0m[27m[24m[Jprasamsathapa@Prakritis-Air project1 % [K[?2004hccat Client.java[?2004l
+cat: Client.java: No such file or directory
+[1m[7m%[27m[1m[0m                                                                                                                                                                        [0m[27m[24m[Jprasamsathapa@Prakritis-Air project1 % [K[?2004hlls[?2004l
+Warehouse.iml	WarehouseData	project1.txt	src
+[1m[7m%[27m[1m[0m                                                                                                                                                                        [0m[27m[24m[Jprasamsathapa@Prakritis-Air project1 % [K[?2004hccd src[?2004l
+[1m[7m%[27m[1m[0m                                                                                                                                                                        [0m[27m[24m[Jprasamsathapa@Prakritis-Air src % [K[?2004hcd srcls    cat Client.java[?2004l
+import java.util.*;
+import java.io.*;
+
+public class Client implements Serializable {
+    private static final long serialVersionUID = 1L;
+    private String clientId;
+    private String name;
+    private String email;
+    private String phone;
+    private List wishlist = new LinkedList();
+    private List waitlist = new LinkedList();
+
+    public Client(String clientId, String name, String email, String phone) {
+        this.clientId = clientId;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+    }
+
+    public void addWishlistItem(Product product) {
+        wishlist.add(product);
+    }
+
+    public boolean removeWishlistItem(String productId) {
+        Iterator products = wishlist.iterator();
+        while (products.hasNext()) {
+            Product p = (Product) products.next();
+            if (p.getId().equals(productId)) {
+                products.remove();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void addWaitlistItem(Product product) {
+        waitlist.add(product);
+    }
+
+    public boolean removeWaitlistItem(String productId) {
+        Iterator products = waitlist.iterator();
+        while (products.hasNext()) {
+            Product p = (Product) products.next();
+            if (p.getId().equals(productId)) {
+                products.remove();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Iterator getWishlist() {
+        return wishlist.iterator();
+    }
+
+    public Iterator getWaitlist() {
+        return waitlist.iterator();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getId() {
+        return clientId;
+    }
+
+    public String toString() {
+        return "Client id=" + clientId + " name=" + name + " email=" + email + " phone=" + phone;
+    }
+}
+[1m[7m%[27m[1m[0m                                                                                                                                                                        [0m[27m[24m[Jprasamsathapa@Prakritis-Air src % [K[?2004hccat Product.java[?2004l
+import java.io.*;
+public class Product implements Serializable {
+    private static final long serialVersionUID = 1L;
+    private String id;
+    private String name;
+    private double price;
+
+    public Product(String id, String name, double price) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String toString() {
+        return "Product id=" + id + " name=" + name + " price=" + price;
+    }
+}
+[1m[7m%[27m[1m[0m                                                                                                                                                                        [0m[27m[24m[Jprasamsathapa@Prakritis-Air src % [K[?2004hccat SimpleTester.java[1m [0m[0m [?2004l
+import java.util.*;
+import java.io.*;
+
+public class SimpleTester {
+    public static void main(String[] args) {
+        // Create Warehouse 
+        Warehouse warehouse = Warehouse.instance("W1", "New York");
+
+        // Create Products
+        Product p1 = new Product("P1", "Laptop", 1200.50);
+        Product p2 = new Product("P2", "Phone", 799.99);
+        Product p3 = new Product("P3", "Tablet", 450.00);
+
+        // Add Products to Warehouse
+        warehouse.addProduct(p1);
+        warehouse.addProduct(p2);
+        warehouse.addProduct(p3);
+
+        // Create Clients
+        Client c1 = new Client("C1", "Alice", "alice@mail.com", "123-456");
+        Client c2 = new Client("C2", "Bob", "bob@mail.com", "789-123");
+
+        // Add Clients to Warehouse
+        warehouse.addClient(c1);
+        warehouse.addClient(c2);
+
+        // Add Wishlist items
+        c1.addWishlistItem(p1);
+        c1.addWishlistItem(p2);
+        c2.addWishlistItem(p3);
+
+        // Print Warehouse Info
+        System.out.println(warehouse);
+
+        // Print Products in Warehouse
+        System.out.println("Products in warehouse:");
+        Iterator products = warehouse.getProductList();
+        while (products.hasNext()) {
+            System.out.println(products.next());
+        }
+
+        // Print Clients
+        System.out.println("Clients in warehouse:");
+        Iterator clients = warehouse.getClients();
+        while (clients.hasNext()) {
+            Client client = (Client) clients.next();
+            System.out.println(client);
+
+            // Print each client’s wishlist
+            System.out.println("Wishlist of " + client.getName() + ":");
+            Iterator wishlist = client.getWishlist();
+            while (wishlist.hasNext()) {
+                System.out.println(wishlist.next());
+            }
+        }
+
+        // Test removing product
+        System.out.println("Removing product P2...");
+        boolean removed = warehouse.removeProduct("P2");
+        System.out.println("Product P2 removed? " + removed);
+
+        System.out.println("Updated product list:");
+        Iterator updatedProducts = warehouse.getProductList();
+        while (updatedProducts.hasNext()) {
+            System.out.println(updatedProducts.next());
+        }
+
+        // Test removing wishlist item
+        System.out.println("Removing Laptop from Alice's wishlist...");
+        boolean wishlistRemoved = c1.removeWishlistItem("P1");
+        System.out.println("Removed from wishlist? " + wishlistRemoved);
+
+        System.out.println("Alice's updated wishlist:");
+        Iterator wishlistAfter = c1.getWishlist();
+        while (wishlistAfter.hasNext()) {
+            System.out.println(wishlistAfter.next());
+        }
+    }
+}
+[1m[7m%[27m[1m[0m                                                                                                                                                                        [0m[27m[24m[Jprasamsathapa@Prakritis-Air src % [K[?2004hcat SimpleTester.java[21D                     [21Dccat Tester.
+[JTester.class  Tester.java[A[0m[27m[24m[34Ccat Tester.[Kjava[1m [0m[0m [?2004l
+[J/*
+This is a test script that checks the Warehouse, Product, and Client classes.
+*/
+import java.util.*;
+import java.io.*;
+
+public class Tester {
+
+    public static String getToken(String prompt) {
+        do {
+            try {
+                System.out.println(prompt);
+                BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+                String line = reader.readLine();
+                StringTokenizer tokenizer = new StringTokenizer(line, "\n\r\f");
+                if (tokenizer.hasMoreTokens()) {
+                    return tokenizer.nextToken();
+                }
+            } catch (IOException ioe) {
+                System.exit(0);
+            }
+        } while (true);
+    }
+
+    private static boolean yesOrNo(String prompt) {
+        String more = getToken(prompt + " (Y|y)[es] or anything else for no");
+        if (more.charAt(0) != 'y' && more.charAt(0) != 'Y') {
+            return false;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Warehouse warehouse = null;
+
+        if (yesOrNo("Would you like to load the warehouse from disk")) {
+            try {
+                FileInputStream file = new FileInputStream("WarehouseData");
+                ObjectInputStream input = new ObjectInputStream(file);
+                warehouse = (Warehouse) input.readObject();
+                System.out.println("Warehouse loaded successfully.");
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            } catch (ClassNotFoundException cnfe) {
+                cnfe.printStackTrace();
+            }
+        }
+
+        if (warehouse == null) {
+            warehouse = Warehouse.instance("W1", "New York");
+        }
+
+        // Create some products
+        Product p1 = new Product("P1", "Laptop", 1200.50);
+        Product p2 = new Product("P2", "Phone", 799.99);
+        Product p3 = new Product("P3", "Tablet", 450.00);
+
+        // Add products
+        warehouse.addProduct(p1);
+        warehouse.addProduct(p2);
+        warehouse.addProduct(p3);
+
+        // Create clients
+        Client c1 = new Client("C1", "Alice", "alice@mail.com", "123-456");
+        Client c2 = new Client("C2", "Bob", "bob@mail.com", "789-123");
+
+        // Add clients
+        warehouse.addClient(c1);
+        warehouse.addClient(c2);
+
+        // Add wishlist items
+        c1.addWishlistItem(p1);
+        c1.addWishlistItem(p2);
+        c2.addWishlistItem(p3);
+
+        // Print warehouse info
+        System.out.println("==== Warehouse Info ====");
+        System.out.println(warehouse);
+
+        // Print products
+        System.out.println("==== Product List ====");
+        Iterator products = warehouse.getProductList();
+        while (products.hasNext()) {
+            System.out.println(products.next());
+        }
+
+        // Print clients and their wishlists
+        System.out.println("==== Clients ====");
+        Iterator clients = warehouse.getClients();
+        while (clients.hasNext()) {
+            Client client = (Client) clients.next();
+            System.out.println(client);
+
+            System.out.println("Wishlist of " + client.getName() + ":");
+            Iterator wishlist = client.getWishlist();
+            while (wishlist.hasNext()) {
+                System.out.println(wishlist.next());
+            }
+        }
+
+        // Save if asked
+        if (yesOrNo("Would you like to save the warehouse to disk")) {
+            try {
+                FileOutputStream file = new FileOutputStream("WarehouseData");
+                ObjectOutputStream output = new ObjectOutputStream(file);
+                output.writeObject(warehouse);
+                output.close();
+                System.out.println("Warehouse saved successfully.");
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
+        }
+    }
+}
+[1m[7m%[27m[1m[0m                                                                                                                                                                        [0m[27m[24m[Jprasamsathapa@Prakritis-Air src % [K[?2004hccat Warehouse.java[1m [0m[0m [?2004l
+import java.util.*;
+import java.io.*;
+
+public class Warehouse implements Serializable {
+    private static final long serialVersionUID = 1L;
+    private String warehouseId;
+    private String location;
+    private List products = new LinkedList();
+    private List clients = new LinkedList();
+    private static Warehouse warehouse;
+
+    private Warehouse(String warehouseId, String location) {
+        this.warehouseId = warehouseId;
+        this.location = location;
+    }
+
+    public static Warehouse instance(String warehouseId, String location) {
+        if (warehouse == null) {
+            warehouse = new Warehouse(warehouseId, location);
+        }
+        return warehouse;
+    }
+
+    public void addProduct(Product product) {
+        products.add(product);
+    }
+
+    public boolean removeProduct(String productId) {
+        Iterator iter = products.iterator();
+        while (iter.hasNext()) {
+            Product p = (Product) iter.next();
+            if (p.getId().equals(productId)) {
+                iter.remove();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Iterator getProductList() {
+        return products.iterator();
+    }
+
+    public void addClient(Client client) {
+        clients.add(client);
+    }
+
+    public Iterator getClients() {
+        return clients.iterator();
+    }
+
+    public Product findProduct(String productId) {
+        Iterator iter = products.iterator();
+        while (iter.hasNext()) {
+            Product p = (Product) iter.next();
+            if (p.getId().equals(productId)) {
+                return p;
+            }
+        }
+        return null;
+    }
+
+    private void writeObject(java.io.ObjectOutputStream output) {
+        try {
+            output.defaultWriteObject();
+            output.writeObject(warehouse);
+        } catch (IOException ioe) {
+            System.out.println(ioe);
+        }
+    }
+
+    private void readObject(java.io.ObjectInputStream input) {
+        try {
+            if (warehouse != null) {
+                return;
+            } else {
+                input.defaultReadObject();
+                if (warehouse == null) {
+                    warehouse = (Warehouse) input.readObject();
+                } else {
+                    input.readObject();
+                }
+            }
+        } catch (IOException ioe) {
+            System.out.println("in Warehouse readObject \n" + ioe);
+        } catch (ClassNotFoundException cnfe) {
+            cnfe.printStackTrace();
+        }
+    }
+
+    public String toString() {
+        return "Warehouse id=" + warehouseId + " location=" + location;
+    }
+}
+[1m[7m%[27m[1m[0m                                                                                                                                                                        [0m[27m[24m[Jprasamsathapa@Prakritis-Air src % [K[?2004h[7mjavac *.java [27m[13D[27mj[27ma[27mv[27ma[27mc[27m [27m*[27m.[27mj[27ma[27mv[27ma[27m [?2004l
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+[1m[7m%[27m[1m[0m                                                                                                                                                                        [0m[27m[24m[Jprasamsathapa@Prakritis-Air src % [K[?2004hjjava Te  SimpleTester. [?2004l
+Warehouse id=W1 location=New York
+Products in warehouse:
+Product id=P1 name=Laptop price=1200.5
+Product id=P2 name=Phone price=799.99
+Product id=P3 name=Tablet price=450.0
+Clients in warehouse:
+Client id=C1 name=Alice email=alice@mail.com phone=123-456
+Wishlist of Alice:
+Product id=P1 name=Laptop price=1200.5
+Product id=P2 name=Phone price=799.99
+Client id=C2 name=Bob email=bob@mail.com phone=789-123
+Wishlist of Bob:
+Product id=P3 name=Tablet price=450.0
+Removing product P2...
+Product P2 removed? true
+Updated product list:
+Product id=P1 name=Laptop price=1200.5
+Product id=P3 name=Tablet price=450.0
+Removing Laptop from Alice's wishlist...
+Removed from wishlist? true
+Alice's updated wishlist:
+Product id=P2 name=Phone price=799.99
+[1m[7m%[27m[1m[0m                                                                                                                                                                        [0m[27m[24m[Jprasamsathapa@Prakritis-Air src % [K[?2004hjava SimpleTester[13Dc *.java     [9D SimpleTester            Tester. [?2004l
+Would you like to load the warehouse from disk (Y|y)[es] or anything else for no
+y
+Warehouse loaded successfully.
+==== Warehouse Info ====
+Warehouse id=W1 location=New York
+==== Product List ====
+Product id=P1 name=Laptop price=1200.5
+Product id=P2 name=Phone price=799.99
+Product id=P3 name=Tablet price=450.0
+Product id=P1 name=Laptop price=1200.5
+Product id=P2 name=Phone price=799.99
+Product id=P3 name=Tablet price=450.0
+==== Clients ====
+Client id=C1 name=Alice email=alice@mail.com phone=123-456
+Wishlist of Alice:
+Product id=P1 name=Laptop price=1200.5
+Product id=P2 name=Phone price=799.99
+Client id=C2 name=Bob email=bob@mail.com phone=789-123
+Wishlist of Bob:
+Product id=P3 name=Tablet price=450.0
+Client id=C1 name=Alice email=alice@mail.com phone=123-456
+Wishlist of Alice:
+Product id=P1 name=Laptop price=1200.5
+Product id=P2 name=Phone price=799.99
+Client id=C2 name=Bob email=bob@mail.com phone=789-123
+Wishlist of Bob:
+Product id=P3 name=Tablet price=450.0
+Would you like to save the warehouse to disk (Y|y)[es] or anything else for no
+y
+Warehouse saved successfully.
+[1m[7m%[27m[1m[0m                                                                                                                                                                        [0m[27m[24m[Jprasamsathapa@Prakritis-Air src % [K[?2004heexit[?2004l
+
+Script done on Tue Sep 30 21:27:48 2025
