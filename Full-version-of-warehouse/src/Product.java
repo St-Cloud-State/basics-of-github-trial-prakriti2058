@@ -1,10 +1,13 @@
 import java.io.*;
+import java.util.*;
+
 public class Product implements Serializable {
     private static final long serialVersionUID = 1L;
     private String id;
     private String name;
     private double price;
     private int quantity;
+    private List<WaitlistItem> waitlist = new ArrayList<>();
 
     public Product(String id, String name, double price, int quantity) {
         this.id = id;
@@ -51,6 +54,22 @@ public class Product implements Serializable {
             return true;
         }
         return false;
+    }
+
+    public void addToWaitlist(WaitlistItem item) {
+        waitlist.add(item);
+    }
+
+    public void removeFromWaitlist(WaitlistItem item) {
+        waitlist.remove(item);
+    }
+
+    public void clearWaitlist() {
+        waitlist.clear();
+    }
+
+    public List<WaitlistItem> getWaitlist() {
+        return new ArrayList<>(waitlist);
     }
 
     public String toString() {

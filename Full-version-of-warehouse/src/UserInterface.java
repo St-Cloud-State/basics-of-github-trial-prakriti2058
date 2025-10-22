@@ -38,6 +38,8 @@ public class UserInterface {
             System.out.println("7. Process Order");
             System.out.println("8. Accept Payment");
             System.out.println("9. Receive Shipment");
+            System.out.println("10. Display Product Waitlist");
+            System.out.println("11. Display Client Invoices");
             System.out.println("0. Exit");
             System.out.print("Enter your choice: ");
             
@@ -53,6 +55,8 @@ public class UserInterface {
                 case "7": processOrder(); break;
                 case "8": acceptPayment(); break;
                 case "9": receiveShipment(); break;
+                case "10": displayProductWaitlist(); break;
+                case "11": displayClientInvoices(); break;
                 case "0": System.out.println("Goodbye!"); return;
                 default: System.out.println("Invalid choice!");
             }
@@ -196,5 +200,49 @@ public class UserInterface {
         
         warehouse.addProductQuantity(productId, quantity);
         System.out.println("Shipment recorded successfully!");
+    }
+
+    private void displayProductWaitlist() {
+        System.out.print("Enter product ID: ");
+        String productId = input.nextLine();
+        
+        Product product = warehouse.findProduct(productId);
+        if (product == null) {
+            System.out.println("Product not found.");
+            return;
+        }
+        
+        List<WaitlistItem> waitlist = product.getWaitlist();
+        if (waitlist.isEmpty()) {
+            System.out.println("No items in waitlist for this product.");
+            return;
+        }
+        
+        System.out.println("Waitlist for product " + product.getName() + ":");
+        for (WaitlistItem item : waitlist) {
+            System.out.println(item);
+        }
+    }
+
+    private void displayClientInvoices() {
+        System.out.print("Enter client ID: ");
+        String clientId = input.nextLine();
+        
+        Client client = findClient(clientId);
+        if (client == null) {
+            System.out.println("Client not found.");
+            return;
+        }
+        
+        List<String> invoices = warehouse.getInvoices(clientId);
+        if (invoices.isEmpty()) {
+            System.out.println("No invoices found for this client.");
+            return;
+        }
+        
+        System.out.println("Invoices for client " + client.getName() + ":");
+        for (String invoice : invoices) {
+            System.out.println(invoice);
+        }
     }
 }

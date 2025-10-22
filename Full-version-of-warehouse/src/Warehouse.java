@@ -7,6 +7,7 @@ public class Warehouse implements Serializable {
     private String location;
     private List<Product> products = new LinkedList<>();
     private List<Client> clients = new LinkedList<>();
+    private Map<String, List<String>> invoices = new HashMap<>(); // clientId -> list of invoices
     private static Warehouse warehouse;
 
     private Warehouse(String warehouseId, String location) {
@@ -22,41 +23,64 @@ public class Warehouse implements Serializable {
     }
 
     public boolean processOrder(Client client) {
+        if (client == null) return false;
+        
         List<WishlistItem> wishlist = client.getWishlist();
-        List<WishlistItem> unfulfilledItems = new ArrayList<>();
-        double totalCost = 0.0;
-
+        boolean orderProcessed = false;
+        
+        // Keep track of items to remove from wishlist after processing
+        List<WishlistItem> itemsToRemove = new ArrayList<>();
+        
         for (WishlistItem item : wishlist) {
             Product product = item.getProduct();
             int quantityWanted = item.getQuantity();
             int available = product.getQuantity();
-
+            
             if (available >= quantityWanted) {
                 // Fulfill order completely
-                product.removeQuantity(quantityWanted);
-                totalCost += quantityWanted * product.getPrice();
+                if (product.removeQuantity(quantityWanted)) {
+                    double cost = quantityWanted * product.getPrice();
+                    client.updateBalance(cost);
+                    itemsToRemove.add(item);
+                    orderProcessed = true;
+                    
+                    // Generate invoice
+                    String invoice = String.format("Invoice for %s: %d x %s at $%.2f each. Total: $%.2f",
+                        client.getName(), quantityWanted, product.getName(),
+                        product.getPrice(), cost);
+                    
+                    List<String> clientInvoices = invoices.computeIfAbsent(client.getId(), k -> new ArrayList<>());
+                    clientInvoices.add(invoice);
+                }
             } else if (available > 0) {
                 // Partially fulfill order
                 product.removeQuantity(available);
-                totalCost += available * product.getPrice();
-                // Add unfulfilled quantity back to wishlist
-                unfulfilledItems.add(new WishlistItem(product, quantityWanted - available));
+                double cost = available * product.getPrice();
+                client.updateBalance(cost);
+                orderProcessed = true;
+                
+                // Generate invoice for partial fulfillment
+                String invoice = String.format("Invoice for %s: %d x %s at $%.2f each. Total: $%.2f",
+                    client.getName(), available, product.getName(),
+                    product.getPrice(), cost);
+                
+                List<String> clientInvoices = invoices.computeIfAbsent(client.getId(), k -> new ArrayList<>());
+                clientInvoices.add(invoice);
+                
+                // Add unfulfilled quantity to waitlist
+                product.addToWaitlist(new WaitlistItem(product, quantityWanted - available, client));
+                itemsToRemove.add(item);
             } else {
-                // Cannot fulfill any part of this item
-                unfulfilledItems.add(new WishlistItem(product, quantityWanted));
+                // Cannot fulfill any part of this item - add to waitlist
+                product.addToWaitlist(new WaitlistItem(product, quantityWanted, client));
+                itemsToRemove.add(item);
             }
         }
-
-        // Update client's balance
-        client.updateBalance(totalCost);
         
-        // Clear current wishlist and add unfulfilled items back
-        client.clearWishlist();
-        for (WishlistItem item : unfulfilledItems) {
-            client.addWishlistItem(item);
-        }
-
-        return unfulfilledItems.isEmpty();
+        // Remove processed and waitlisted items from wishlist
+        wishlist.removeAll(itemsToRemove);
+        
+        return orderProcessed;
     }
 
     public void addProduct(Product product) {
@@ -99,7 +123,64 @@ public class Warehouse implements Serializable {
     public void addProductQuantity(String productId, int quantity) {
         Product product = findProduct(productId);
         if (product != null) {
-            product.addQuantity(quantity);
+            // Process waitlist first
+            List<WaitlistItem> waitlist = product.getWaitlist();
+            List<WaitlistItem> remainingItems = new ArrayList<>();
+            int remainingQuantity = quantity;
+
+            for (WaitlistItem item : waitlist) {
+                if (remainingQuantity <= 0) {
+                    remainingItems.add(item);
+                    continue;
+                }
+
+                int itemQuantity = item.getQuantity();
+                if (remainingQuantity >= itemQuantity) {
+                    // Can fulfill this waitlist item completely
+                    remainingQuantity -= itemQuantity;
+                    
+                    // Charge the client and generate invoice
+                    Client client = item.getClient();
+                    double cost = itemQuantity * product.getPrice();
+                    client.updateBalance(cost);
+                    
+                    String invoice = String.format("Invoice for %s: %d x %s at $%.2f each. Total: $%.2f (Waitlist fulfillment)",
+                        client.getName(), itemQuantity, product.getName(),
+                        product.getPrice(), cost);
+                    
+                    List<String> clientInvoices = invoices.computeIfAbsent(client.getId(), k -> new ArrayList<>());
+                    clientInvoices.add(invoice);
+                } else if (remainingQuantity > 0) {
+                    // Can only fulfill part of this waitlist item
+                    double cost = remainingQuantity * product.getPrice();
+                    Client client = item.getClient();
+                    client.updateBalance(cost);
+                    
+                    String invoice = String.format("Invoice for %s: %d x %s at $%.2f each. Total: $%.2f (Partial waitlist fulfillment)",
+                        client.getName(), remainingQuantity, product.getName(),
+                        product.getPrice(), cost);
+                    
+                    List<String> clientInvoices = invoices.computeIfAbsent(client.getId(), k -> new ArrayList<>());
+                    clientInvoices.add(invoice);
+                    
+                    // Add remaining quantity back to waitlist
+                    remainingItems.add(new WaitlistItem(product, itemQuantity - remainingQuantity, client));
+                    remainingQuantity = 0;
+                } else {
+                    remainingItems.add(item);
+                }
+            }
+
+            // Update waitlist with remaining items
+            product.clearWaitlist();
+            for (WaitlistItem item : remainingItems) {
+                product.addToWaitlist(item);
+            }
+
+            // Add any remaining quantity to stock
+            if (remainingQuantity > 0) {
+                product.addQuantity(remainingQuantity);
+            }
         }
     }
 
@@ -129,6 +210,11 @@ public class Warehouse implements Serializable {
         } catch (ClassNotFoundException cnfe) {
             cnfe.printStackTrace();
         }
+    }
+
+    public List<String> getInvoices(String clientId) {
+        List<String> clientInvoices = invoices.get(clientId);
+        return clientInvoices != null ? new ArrayList<>(clientInvoices) : Collections.emptyList();
     }
 
     public String toString() {
