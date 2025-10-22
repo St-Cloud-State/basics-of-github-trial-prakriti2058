@@ -1,71 +1,0 @@
-Script started on Tue Oct 21 21:26:35 2025
-[1m[7m%[27m[1m[0m                                                                                                     [0m[27m[24m[Jprasamsathapa@Prakritis-Air src % [K[?2004h/Users/prasamsathapa/Documents/fall 25/CSCI 414/Assignment-4/.venv/bin/python /Users/prasamsathapa/Documents/fall 25/CSCI 414/Assignment-4/assignment-4/app.py[K[A[57D~[19P[11Cmongodb-macos-aarch64-7.0.25/bin/mongod --dbpath ~/Documents/mongodb-data[K[A[16Cclear[K[1B[K[A[39C~/Documents/mongodb-macos-aarch64-7.0.25/bin/mongod --dbpath ~/Documents/mongodb-data[K[A[16Cclear[K[1B[K[A[39C   c  jjaba  va   j  lls[?2004l[1BClient.class		SimpleTester.class	WaitlistItemOnly.class	WishlistItem.java
-Client.java		SimpleTester.java	WaitlistItemOnly.java	WishlistItemOnly.class
-NewSimpleTester.class	Test.class		WaitlistTester.class	WishlistItemOnly.java
-NewSimpleTester.java	Test.java		WaitlistTester.java	WishlistTester.class
-Product.class		Tester.class		Warehouse.class		WishlistTester.java
-Product.java		Tester.java		Warehouse.java		scriptwarehousetest.txt
-ProductList.class	WaitlistItem.class	WarehouseData
-ProductList.java	WaitlistItem.java	WishlistItem.class
-[1m[7m%[27m[1m[0m                                                                                                     [0m[27m[24m[Jprasamsathapa@Prakritis-Air src % [K[?2004h[7mjavac *.java[27m[12D[27mj[27ma[27mv[27ma[27mc[27m [27m*[27m.[27mj[27ma[27mv[27ma[?2004l
-[1m[7m%[27m[1m[0m                                                                                                     [0m[27m[24m[Jprasamsathapa@Prakritis-Air src % [K[?2004hjavac *.java[12Dls          [10D/Users/prasamsathapa/Documents/fall 25/CSCI 414/Assignment-4/.venv/bin/python /Users/prasamsathapa/Documents/fall 25/CSCI 414/Assignment-4/assignment-4/app.py[K[A[57D~[19P[11Cmongodb-macos-aarch64-7.0.25/bin/mongod --dbpath ~/Documents/mongodb-data[K[A[16Cclear[K[1B[K[A[39C~/Documents/mongodb-macos-aarch64-7.0.25/bin/mongod --dbpath ~/Documents/mongodb-data[K[A[16Csource "/Users/prasamsathapa/Documents/fall 25/CSCI 414/Assignment-4/.venv/bin/activate"[A[13C[8P[59C4/.venv/bin/python /Users/prasamsathapa/Documents/fall 25/CSCI 414/Assignment-4/assignment-4/app.py[A[57Dls -al[K[1B[K[A[40Cjavac *.java[12Dcd src      project1[11Dls         [9Dgit checkout remotes/origin/main[19Dmain               [14D[14Dbranch --all [12Dcheckout remotes/origin/main[28Dbranch --all                [16D[12Dfetch       branch --all [13Dpush origin develop[19Dmerge remotes/origin/main[25Dpush origin develop      [19Dbranch --all       [13Dfetch             g  jjava NewSimpleTester[?2004l[1BAll Clients (Initial):
-Client id=C1 name=Client 1 email=c1@email.com phone=111-111-1111 Balance: $0.0
-Client id=C2 name=Client 2 email=c2@email.com phone=222-222-2222 Balance: $0.0
-Client id=C3 name=Client 3 email=c3@email.com phone=333-333-3333 Balance: $0.0
-Client id=C4 name=Client 4 email=c4@email.com phone=444-444-4444 Balance: $0.0
-Client id=C5 name=Client 5 email=c5@email.com phone=555-555-5555 Balance: $0.0
-
-All Products:
-Product id=P1 name=Product 1 price=1.0 quantity=10
-Product id=P2 name=Product 2 price=2.0 quantity=20
-Product id=P3 name=Product 3 price=3.0 quantity=30
-Product id=P4 name=Product 4 price=4.0 quantity=40
-Product id=P5 name=Product 5 price=5.0 quantity=50
-
-C1's Wishlist:
-WishlistItem [product=Product 1, quantity=5, dateAdded=Tue Oct 21 21:28:46 CDT 2025]
-WishlistItem [product=Product 3, quantity=5, dateAdded=Tue Oct 21 21:28:46 CDT 2025]
-WishlistItem [product=Product 5, quantity=5, dateAdded=Tue Oct 21 21:28:46 CDT 2025]
-
-C2's Wishlist:
-WishlistItem [product=Product 1, quantity=7, dateAdded=Tue Oct 21 21:28:46 CDT 2025]
-WishlistItem [product=Product 2, quantity=7, dateAdded=Tue Oct 21 21:28:46 CDT 2025]
-WishlistItem [product=Product 4, quantity=7, dateAdded=Tue Oct 21 21:28:46 CDT 2025]
-
-C3's Wishlist:
-WishlistItem [product=Product 1, quantity=6, dateAdded=Tue Oct 21 21:28:46 CDT 2025]
-WishlistItem [product=Product 2, quantity=6, dateAdded=Tue Oct 21 21:28:46 CDT 2025]
-WishlistItem [product=Product 5, quantity=6, dateAdded=Tue Oct 21 21:28:46 CDT 2025]
-
-Processing C2's order...
-
-All Clients (After C2's order):
-Client id=C1 name=Client 1 email=c1@email.com phone=111-111-1111 Balance: $0.0
-Client id=C2 name=Client 2 email=c2@email.com phone=222-222-2222 Balance: $49.0
-Client id=C3 name=Client 3 email=c3@email.com phone=333-333-3333 Balance: $0.0
-Client id=C4 name=Client 4 email=c4@email.com phone=444-444-4444 Balance: $0.0
-Client id=C5 name=Client 5 email=c5@email.com phone=555-555-5555 Balance: $0.0
-
-Processing C3's order...
-
-All Clients (After C3's order):
-Client id=C1 name=Client 1 email=c1@email.com phone=111-111-1111 Balance: $0.0
-Client id=C2 name=Client 2 email=c2@email.com phone=222-222-2222 Balance: $49.0
-Client id=C3 name=Client 3 email=c3@email.com phone=333-333-3333 Balance: $45.0
-Client id=C4 name=Client 4 email=c4@email.com phone=444-444-4444 Balance: $0.0
-Client id=C5 name=Client 5 email=c5@email.com phone=555-555-5555 Balance: $0.0
-
-C2's Wishlist (After order):
-
-C3's Wishlist (After order):
-WishlistItem [product=Product 1, quantity=3, dateAdded=Tue Oct 21 21:28:46 CDT 2025]
-
-Final Product Quantities:
-Product id=P1 name=Product 1 price=1.0 quantity=0
-Product id=P2 name=Product 2 price=2.0 quantity=7
-Product id=P3 name=Product 3 price=3.0 quantity=30
-Product id=P4 name=Product 4 price=4.0 quantity=33
-Product id=P5 name=Product 5 price=5.0 quantity=44
-[1m[7m%[27m[1m[0m                                                                                                     [0m[27m[24m[Jprasamsathapa@Prakritis-Air src % [K[?2004heezi e exit[?2004l
-
-Script done on Tue Oct 21 21:29:01 2025
