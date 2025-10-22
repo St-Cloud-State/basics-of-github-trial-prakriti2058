@@ -4,10 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- * Represents a waitlist exclusively for a single client.
- * This class holds a list of products that the client is waiting for.
- */
+
 public class WaitlistItemOnly implements Serializable {
     private static final long serialVersionUID = 1L;
     private Client client;
