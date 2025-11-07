@@ -1,0 +1,968 @@
+Script started on Wed Oct 22 16:39:25 2025
+[1m[7m%[27m[1m[0m                                                                                                     [0m[27m[24m[Jprasamsathapa@Prakritis-Air script % [K[?2004hlls[?2004l
+warehouseTest.txt
+[1m[7m%[27m[1m[0m                                                                                                     [0m[27m[24m[Jprasamsathapa@Prakritis-Air script % [K[?2004hccd ..[?2004l
+[1m[7m%[27m[1m[0m                                                                                                     [0m[27m[24m[Jprasamsathapa@Prakritis-Air Full-version-of-warehouse % [K[?2004hlls[?2004l
+script	src
+[1m[7m%[27m[1m[0m                                                                                                     [0m[27m[24m[Jprasamsathapa@Prakritis-Air Full-version-of-warehouse % [K[?2004hccd src[?2004l
+[1m[7m%[27m[1m[0m                                                                                                     [0m[27m[24m[Jprasamsathapa@Prakritis-Air src % [K[?2004hcd srcls    cd ..ls   exitjava NewSimpleTester[16Dc *.java        [8D[12Dls          [10Djavac *.java[?2004l
+[1m[7m%[27m[1m[0m                                                                                                     [0m[27m[24m[Jprasamsathapa@Prakritis-Air src % [K[?2004hjavac *.java[12Dcd src      ls    cd ..ls   exitjava NewSimpleTester[16Dc *.java        [8D[8D NewSimpleTester[16Dc *.java        [8D[12Dls          [10D/Users/prasamsathapa/Documents/fall 25/CSCI 414/Assignment-4/.venv/bin/python /Users/prasamsathapa/Documents/fall 25/CSCI 414/Assignment-4/assignment-4/app.py[K[A[57D~[19P[11Cmongodb-macos-aarch64-7.0.25/bin/mongod --dbpath ~/Documents/mongodb-data[K[A[16Cclear[K[1B[K[A[39C~/Documents/mongodb-macos-aarch64-7.0.25/bin/mongod --dbpath ~/Documents/mongodb-data[K[A[16C/Users/prasamsathapa/Documents/fall 25/CSCI 414/Assignment-4/.venv/bin/python /Users/prasamsathapa/Documents/fall 25/CSCI 414/Assignment-4/assignment-4/app.py[A[57Dls[K[1B[K[A[36Cjavac *.java[8D NewSimpleTester[20Dexit                [16Dls  cd ..ls   cd srcjavac *.java[12D            [12D[7mjava[1B[27m[7mUserInterface[27m[K[A[21C[27mj[27ma[27mv[27ma[1B[27mU[27ms[27me[27mr[27mI[27mn[27mt[27me[27mr[27mf[27ma[27mc[27me[?2004l
+Usage: java [options] <mainclass> [args...]
+           (to execute a class)
+   or  java [options] -jar <jarfile> [args...]
+           (to execute a jar file)
+   or  java [options] -m <module>[/<mainclass>] [args...]
+       java [options] --module <module>[/<mainclass>] [args...]
+           (to execute the main class in a module)
+   or  java [options] <sourcefile> [args]
+           (to execute a single source-file program)
+
+ Arguments following the main class, source file, -jar <jarfile>,
+ -m or --module <module>/<mainclass> are passed as the arguments to
+ main class.
+
+ where options include:
+
+    -cp <class search path of directories and zip/jar files>
+    -classpath <class search path of directories and zip/jar files>
+    --class-path <class search path of directories and zip/jar files>
+                  A : separated list of directories, JAR archives,
+                  and ZIP archives to search for class files.
+    -p <module path>
+    --module-path <module path>...
+                  A : separated list of elements, each element is a file path
+                  to a module or a directory containing modules. Each module is either
+                  a modular JAR or an exploded-module directory.
+    --upgrade-module-path <module path>...
+                  A : separated list of elements, each element is a file path
+                  to a module or a directory containing modules to replace
+                  upgradeable modules in the runtime image. Each module is either
+                  a modular JAR or an exploded-module directory.
+    --add-modules <module name>[,<module name>...]
+                  root modules to resolve in addition to the initial module.
+                  <module name> can also be ALL-DEFAULT, ALL-SYSTEM,
+                  ALL-MODULE-PATH.
+    --enable-native-access <module name>[,<module name>...]
+                  modules that are permitted to perform restricted native operations.
+                  <module name> can also be ALL-UNNAMED.
+    --list-modules
+                  list observable modules and exit
+    -d <module name>
+    --describe-module <module name>
+                  describe a module and exit
+    --dry-run     create VM and load main class but do not execute main method.
+                  The --dry-run option may be useful for validating the
+                  command-line options such as the module system configuration.
+    --validate-modules
+                  validate all modules and exit
+                  The --validate-modules option may be useful for finding
+                  conflicts and other errors with modules on the module path.
+    -D<name>=<value>
+                  set a system property
+    -verbose:[class|module|gc|jni]
+                  enable verbose output for the given subsystem
+    -version      print product version to the error stream and exit
+    --version     print product version to the output stream and exit
+    -showversion  print product version to the error stream and continue
+    --show-version
+                  print product version to the output stream and continue
+    --show-module-resolution
+                  show module resolution output during startup
+    -? -h -help
+                  print this help message to the error stream
+    --help        print this help message to the output stream
+    -X            print help on extra options to the error stream
+    --help-extra  print help on extra options to the output stream
+    -ea[:<packagename>...|:<classname>]
+    -enableassertions[:<packagename>...|:<classname>]
+                  enable assertions with specified granularity
+    -da[:<packagename>...|:<classname>]
+    -disableassertions[:<packagename>...|:<classname>]
+                  disable assertions with specified granularity
+    -esa | -enablesystemassertions
+                  enable system assertions
+    -dsa | -disablesystemassertions
+                  disable system assertions
+    -agentlib:<libname>[=<options>]
+                  load native agent library <libname>, e.g. -agentlib:jdwp
+                  see also -agentlib:jdwp=help
+    -agentpath:<pathname>[=<options>]
+                  load native agent library by full pathname
+    -javaagent:<jarpath>[=<options>]
+                  load Java programming language agent, see java.lang.instrument
+    -splash:<imagepath>
+                  show splash screen with specified image
+                  HiDPI scaled images are automatically supported and used
+                  if available. The unscaled image filename, e.g. image.ext,
+                  should always be passed as the argument to the -splash option.
+                  The most appropriate scaled image provided will be picked up
+                  automatically.
+                  See the SplashScreen API documentation for more information
+    @argument files
+                  one or more argument files containing options
+    --disable-@files
+                  prevent further argument file expansion
+    --enable-preview
+                  allow classes to depend on preview features of this release
+To specify an argument for a long option, you can use --<name>=<value> or
+--<name> <value>.
+
+zsh: command not found: UserInterface
+[1m[7m%[27m[1m[0m                                                                                                     [0m[27m[24m[Jprasamsathapa@Prakritis-Air src % [K[?2004hcclear[?2004l
+[H[2J[1m[7m%[27m[1m[0m                                                                                                     [0m[27m[24m[Jprasamsathapa@Prakritis-Air src % [K[?2004hlls[?2004l
+Client.class		ProductList.class	WaitlistItem.java	WarehouseData
+Client.java		ProductList.java	WaitlistItemOnly.class	WishlistItem.class
+NewSimpleTester.class	UserInterface.class	WaitlistItemOnly.java	WishlistItem.java
+Product.class		UserInterface.java	Warehouse.class		WishlistItemOnly.class
+Product.java		WaitlistItem.class	Warehouse.java		WishlistItemOnly.java
+[1m[7m%[27m[1m[0m                                                                                                     [0m[27m[24m[Jprasamsathapa@Prakritis-Air src % [K[?2004hlsclearjava 
+UserInterface[K[A[21C[4Cc *.java[1B[K[A[46C[12Dcd src      ls    cd ..ls   exitjava NewSimpleTester[16Dc *.java        [8D[12Dls          [10D/Users/prasamsathapa/Documents/fall 25/CSCI 414/Assignment-4/.venv/bin/python /Users/prasamsathapa/Documents/fall 25/CSCI 414/Assignment-4/assignment-4/app.py[K[A[57Dls[K[1B[K[A[36Cjavac *.java[8D NewSimpleTester[16Dc *.java        [8D[12Dls          [10D/Users/prasamsathapa/Documents/fall 25/CSCI 414/Assignment-4/.venv/bin/python /Users/prasamsathapa/Documents/fall 25/CSCI 414/Assignment-4/assignment-4/app.py[K[A[57D~[19P[11Cmongodb-macos-aarch64-7.0.25/bin/mongod --dbpath ~/Documents/mongodb-data[K[A[16Cclear[K[1B[K[A[39C~/Documents/mongodb-macos-aarch64-7.0.25/bin/mongod --dbpath ~/Documents/mongodb-data[K[A[16Csource "/Users/prasamsathapa/Documents/fall 25/CSCI 414/Assignment-4/.venv/bin/activate"[A[13C[8P[59C4/.venv/bin/python /Users/prasamsathapa/Documents/fall 25/CSCI 414/Assignment-4/assignment-4/app.py[A[57Dls -al[K[1B[K[A[40Cjavac *.java[12Dcd src      project1[11Dls         [9Dgit checkout remotes/origin/main[19Dmain               [14D[14Dbranch --all [12Dcheckout remotes/origin/main[28Dbranch --all                [16D[12Dfetch       branch --all [13Dpush origin develop[19Dmerge remotes/origin/main[25Dbranch --all             [13D[12Dstatus      push origin develop[19Dswitch develop     [14Dpush remotes/origin/develop[22D[8P[14C        [8D[19Dbranch --all       [12Dpush origin [11Dmerge remotes/origin/main[25Dbranch --all             [13D[12Dstatus      \ \        g  [7mjava UserInterface[27m[18D[27mj[27ma[27mv[27ma[27m [27mU[27ms[27me[27mr[27mI[27mn[27mt[27me[27mr[27mf[27ma[27mc[27me[?2004l[1B
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 1
+Enter client ID: 1
+Enter client name: Test
+Enter client email: test@test.com
+Enter client phone: 234534212
+Client added successfully!
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 1
+Enter client ID: 2
+Enter client name: John
+Enter client email: test@test.com^[[D^[[D^[[D             m
+Enter client phone: 23456532
+Client added successfully!
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 1
+Enter client ID: 3
+Enter client name: Joe
+Enter client email: dscc@test.com
+Enter client phone: 325564234
+Client added successfully!
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 1
+Enter client ID: 4
+Enter client name: Sam   Summer      Jane
+Enter client email: jane@g test.com
+Enter client phone: 23464332
+Client added successfully!
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 1
+Enter client ID: 5
+Enter client name: Summer  er
+Enter client email: sam@test.com
+Enter client phone: 23445323
+Client added successfully!
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 2
+Client id=1 name=Test email=test@test.com phone=234534212 Balance: $0.00
+Client id=2 name=John email=test@test.com phone=23456532 Balance: $0.00
+Client id=3 name=Joe email=dscc@test.com phone=325564234 Balance: $0.00
+Client id=4 name=Jane email=jane@test.com phone=23464332 Balance: $0.00
+Client id=5 name=Summer email=sam@test.com phone=23445323 Balance: $0.00
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 3
+Enter product ID: 1
+Enter product name: Oil
+Enter product price: 1
+Enter product quantity: 10
+Product added successfully!
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 3
+Enter product ID: 2
+Enter product name: ToothBrush
+Enter product price: 2
+Enter product quantity: 20
+Product added successfully!
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 3
+Enter product ID: 3
+Enter product name: Veg
+Enter product price: 30
+Enter product quantity: 30
+Product added successfully!
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 3
+Enter product ID: 4
+Enter product name: Pasta
+Enter product price: 4
+Enter product quantity: 40
+Product added successfully!
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 3
+Enter product ID: 5
+Enter product name: Chocolate
+Enter product price: 5
+Enter product quantity: 50
+Product added successfully!
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 4
+Product id=1 name=Oil price=1.0 quantity=10
+Product id=2 name=ToothBrush price=2.0 quantity=20
+Product id=3 name=Veg price=30.0 quantity=30
+Product id=4 name=Pasta price=4.0 quantity=40
+Product id=5 name=Chocolate price=5.0 quantity=50
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 5
+Enter client ID: 1
+Enter product ID: 1
+Enter quantity: 5
+Added to wishlist successfully!
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 5
+Enter client ID: 1
+Enter product ID: 3
+Enter quantity: 5
+Added to wishlist successfully!
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 5
+Enter client ID: 1
+Enter product ID: 5
+Enter quantity: 5
+Added to wishlist successfully!
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 5
+Enter client ID: 2
+Enter product ID: 1
+Enter quantity: 7
+Added to wishlist successfully!
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 5
+Enter client ID: 2
+Enter product ID: 2
+Enter quantity: 7
+Added to wishlist successfully!
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 5
+Enter client ID: 2
+Enter product ID: 4
+Enter quantity: 7
+Added to wishlist successfully!
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 5
+Enter client ID: 3
+Enter product ID: 1
+Enter quantity: 6
+Added to wishlist successfully!
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 5
+Enter client ID: 3
+Enter product ID: 2
+Enter quantity: 6
+Added to wishlist successfully!
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 5
+Enter client ID: 3
+Enter product ID: 5
+Enter quantity: 6
+Added to wishlist successfully!
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 6
+Enter client ID: 1
+Wishlist for client Test:
+WishlistItem [product=Oil, quantity=5, dateAdded=Wed Oct 22 16:44:58 CDT 2025]
+WishlistItem [product=Veg, quantity=5, dateAdded=Wed Oct 22 16:45:10 CDT 2025]
+WishlistItem [product=Chocolate, quantity=5, dateAdded=Wed Oct 22 16:45:23 CDT 2025]
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 6
+Enter client ID: 2
+Wishlist for client John:
+WishlistItem [product=Oil, quantity=7, dateAdded=Wed Oct 22 16:45:44 CDT 2025]
+WishlistItem [product=ToothBrush, quantity=7, dateAdded=Wed Oct 22 16:45:50 CDT 2025]
+WishlistItem [product=Pasta, quantity=7, dateAdded=Wed Oct 22 16:46:04 CDT 2025]
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 6
+Enter client ID: 3
+Wishlist for client Joe:
+WishlistItem [product=Oil, quantity=6, dateAdded=Wed Oct 22 16:46:16 CDT 2025]
+WishlistItem [product=ToothBrush, quantity=6, dateAdded=Wed Oct 22 16:46:22 CDT 2025]
+WishlistItem [product=Chocolate, quantity=6, dateAdded=Wed Oct 22 16:46:31 CDT 2025]
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 7
+Enter client ID: 2
+Order fully processed!
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 7
+Enter client ID: 3
+Order fully processed!
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 2
+Client id=1 name=Test email=test@test.com phone=234534212 Balance: $0.00
+Client id=2 name=John email=test@test.com phone=23456532 Balance: $49.00
+Client id=3 name=Joe email=dscc@test.com phone=325564234 Balance: $45.00
+Client id=4 name=Jane email=jane@test.com phone=23464332 Balance: $0.00
+Client id=5 name=Summer email=sam@test.com phone=23445323 Balance: $0.00
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 6
+Enter client ID: 2
+Wishlist for client John:
+WishlistItem [product=Oil, quantity=7, dateAdded=Wed Oct 22 16:45:44 CDT 2025]
+WishlistItem [product=ToothBrush, quantity=7, dateAdded=Wed Oct 22 16:45:50 CDT 2025]
+WishlistItem [product=Pasta, quantity=7, dateAdded=Wed Oct 22 16:46:04 CDT 2025]
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 6
+Enter client ID: 3
+Wishlist for client Joe:
+WishlistItem [product=Oil, quantity=6, dateAdded=Wed Oct 22 16:46:16 CDT 2025]
+WishlistItem [product=ToothBrush, quantity=6, dateAdded=Wed Oct 22 16:46:22 CDT 2025]
+WishlistItem [product=Chocolate, quantity=6, dateAdded=Wed Oct 22 16:46:31 CDT 2025]
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 10
+Enter product ID: 1
+Waitlist for product Oil:
+WaitlistItem [Product: Oil, Quantity: 3, Client: Joe]
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 10
+Enter product ID: 2
+No items in waitlist for this product.
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 7
+Enter client ID: 1
+Order fully processed!
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 6
+Enter client ID: 1
+Wishlist for client Test:
+WishlistItem [product=Oil, quantity=5, dateAdded=Wed Oct 22 16:44:58 CDT 2025]
+WishlistItem [product=Veg, quantity=5, dateAdded=Wed Oct 22 16:45:10 CDT 2025]
+WishlistItem [product=Chocolate, quantity=5, dateAdded=Wed Oct 22 16:45:23 CDT 2025]
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 2
+Client id=1 name=Test email=test@test.com phone=234534212 Balance: $175.00
+Client id=2 name=John email=test@test.com phone=23456532 Balance: $49.00
+Client id=3 name=Joe email=dscc@test.com phone=325564234 Balance: $45.00
+Client id=4 name=Jane email=jane@test.com phone=23464332 Balance: $0.00
+Client id=5 name=Summer email=sam@test.com phone=23445323 Balance: $0.00
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 8
+Enter client ID: 1
+Enter payment amount: 100
+Payment accepted successfully!
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 8
+Enter client ID: 2
+Enter payment amount: 100
+Payment accepted successfully!
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 2
+Client id=1 name=Test email=test@test.com phone=234534212 Balance: $75.00
+Client id=2 name=John email=test@test.com phone=23456532 Balance: $-51.00
+Client id=3 name=Joe email=dscc@test.com phone=325564234 Balance: $45.00
+Client id=4 name=Jane email=jane@test.com phone=23464332 Balance: $0.00
+Client id=5 name=Summer email=sam@test.com phone=23445323 Balance: $0.00
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 4
+Product id=1 name=Oil price=1.0 quantity=0
+Product id=2 name=ToothBrush price=2.0 quantity=7
+Product id=3 name=Veg price=30.0 quantity=25
+Product id=4 name=Pasta price=4.0 quantity=33
+Product id=5 name=Chocolate price=5.0 quantity=39
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 9
+Enter product ID: 1
+Enter quantity received: 100
+Shipment recorded successfully!
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 4
+Product id=1 name=Oil price=1.0 quantity=92
+Product id=2 name=ToothBrush price=2.0 quantity=7
+Product id=3 name=Veg price=30.0 quantity=25
+Product id=4 name=Pasta price=4.0 quantity=33
+Product id=5 name=Chocolate price=5.0 quantity=39
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 2
+Client id=1 name=Test email=test@test.com phone=234534212 Balance: $80.00
+Client id=2 name=John email=test@test.com phone=23456532 Balance: $-51.00
+Client id=3 name=Joe email=dscc@test.com phone=325564234 Balance: $48.00
+Client id=4 name=Jane email=jane@test.com phone=23464332 Balance: $0.00
+Client id=5 name=Summer email=sam@test.com phone=23445323 Balance: $0.00
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 11
+Enter client ID: 1
+Invoices for client Test:
+Invoice for Test: 5 x Veg at $30.00 each. Total: $150.00
+Invoice for Test: 5 x Chocolate at $5.00 each. Total: $25.00
+Invoice for Test: 5 x Oil at $1.00 each. Total: $5.00 (Waitlist fulfillment)
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 11
+Enter client ID: 2
+Invoices for client John:
+Invoice for John: 7 x Oil at $1.00 each. Total: $7.00
+Invoice for John: 7 x ToothBrush at $2.00 each. Total: $14.00
+Invoice for John: 7 x Pasta at $4.00 each. Total: $28.00
+
+Warehouse Management System
+1. Add Client
+2. Display All Clients
+3. Add Product
+4. Display All Products
+5. Add to Wishlist
+6. Display Client's Wishlist
+7. Process Order
+8. Accept Payment
+9. Receive Shipment
+10. Display Product Waitlist
+11. Display Client Invoices
+0. Exit
+Enter your choice: 0
+Goodbye!
+[1m[7m%[27m[1m[0m                                                                                                     [0m[27m[24m[Jprasamsathapa@Prakritis-Air src % [K[?2004heexit[?2004l
+
+Script done on Wed Oct 22 16:52:43 2025
