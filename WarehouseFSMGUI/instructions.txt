@@ -1,0 +1,40 @@
+
+Part II. Graphical version of FSM-based interface. (200 points, individual)
+The requirements are as follows:
+(1) Add one more state. This is to be done by moving some commands from one state to the
+new state. E.g., in the ClientMenuState, we could have a command “perform wishlist operations”
+which would transition to another state from where we can view, add, delete or modify wishlist
+entries and also place the order.
+(2) Convert the text-based states to GUI. Work on one state at a time. Total credit will depend
+on number of states converted, and the overall look and feel of the system.
+To earn full points all the interaction should take place through graphical components. The
+completed code should be in your individual repo for Project 2.
+What to submit:
+1. Completion report (in D2L, one per individual). This should explain what state you
+have added, starid of the Github account, how to compile and run.
+2. Code in Github. In the Github repository of the starid specified above, create a folder
+called WarehouseFSMGUI and place all the code in there. Code should be compiled and
+tested.
+3. Video demonstration of software. This should be done strictly as follows:
+(a) login in to your minnstate zoom account
+(b) start a meeting, with screen share and audio; record to the cloud.
+(c) while in the meeting, open you github repository and compile and run the program.
+(d) demonstrate all aspects of you interface going through all the sequences described in
+Item 4 below. Please speak clearly, stating what you are doing.
+(e) close the recording, the meeting and zoom session; after a little while you should be
+able to see the public link to the video in your zoom account.
+(f) copy the link to the video, put it in a word/text file and place it in the dropbox in D2L
+4. Sequences to demonstrate for testing:
+Login as clerk, create five clients: C1 through C5; print/display all clients (should show
+the credit/debit balance for each). Logout.
+Login as manager, create five products: P1 through P5, with quantities 10, 20, 30, 40, 50
+respectively and unit prices $1, $2, $3, $4, $5 respectively.
+Become clerk. Print/display all products (should show price and qty for each)
+Become client C1. Add to C1’s wishlist: 5 each of P1, P3 and P5. Display C1’s wishlist
+Logout to clerk, Become C2, add 7 each of P1, P2 and P4 to wishlist. Show C2’s wishlist
+Logout to clerk, manager and back to login.
+Login as C3. Add to C3’s wishlist: 6 each of P1, P2 and P5. Print C3’s wishlist. Logout
+Login as C2. Place order for C2, buy everything (if available) in wishlist. Logout
+Login as clerk, Print/display all clients (should show the credit/debit balance for each)
+Become C3. Place order for C3, buy everything (if available) in wishlist. Logout to clerk.
+Print/display all clients; display all clients with outstanding balance. Logout.
